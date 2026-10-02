@@ -15,7 +15,8 @@ Sends images/PDFs to MinerU (https://mineru.net) and saves the recognized conten
 ```bash
 python .claude/skills/mineru-ocr/scripts/mineru_ocr.py <files-or-dirs...> -o <outdir> [--lang ch|en] [--model vlm|pipeline]
 ```
-- Accepts png/jpg/jpeg/webp/bmp/gif/jp2/pdf; directories are scanned (non-recursive).
+- Accepts png/jpg/jpeg/webp/bmp/gif/jp2/pdf; use `-r` to scan sub-folders (layout is preserved in the output).
+- Already-converted files are skipped (`--force` to redo), so an interrupted or quota-limited run can just be re-run.
 - Output: `<outdir>/<name>.md`, plus `<name>_images/` if MinerU extracted figures.
 - Multiple files are sent in one batch to save quota/time.
 - Flags: `--no-formula`, `--no-table`, `--no-ocr`, `--timeout SECS`.
